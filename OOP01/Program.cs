@@ -19,6 +19,19 @@ namespace OOP01
     {
         A,B,C,D,E,F
     }
+    [Flags]
+    enum permissions
+    {
+        Delete = 1, Execute = 2 , Read = 4 , Write = 8
+    }
+    class Employee
+    {
+        public string Name;
+        public int Age;
+        public decimal Salary;
+        public Gender Gender; // Male - Female
+        public permissions permissions;
+    }
     internal class Program
     {
         #region video01
@@ -145,16 +158,47 @@ namespace OOP01
             #region Ex04
             //Gender gender = new Gender();
             //Console.WriteLine(gender);
+
+            //string Gender_x = Console.ReadLine();
+            //Enum.TryParse<Gender>(Gender_x, true, out Gender resultx);
+            //Console.WriteLine(resultx);
             #endregion
             #endregion
+            #endregion
+            #region video04
+            #region permissions
+            Employee employee = new Employee();
+            employee.Name = "Ali";
+            employee.Age = 20;
+            employee.permissions = (permissions)3;
+
+            // OR
+            employee.permissions = employee.permissions ^ permissions.Read;
+            Console.WriteLine(employee.permissions);           // Delete, Execute, Read
+
+            employee.permissions = employee.permissions ^ permissions.Read;
+            Console.WriteLine(employee.permissions);          // Delete, Execute
+
+            // &
+            if((employee.permissions & permissions.Read) == permissions.Read)
+            {
+                Console.WriteLine("Read is exist");
+            }
+            else
+            {
+                employee.permissions = employee.permissions ^ permissions.Read;
+            }
+            Console.WriteLine(employee.permissions);         //Delete, Execute, Read
+
+            // OR  |
+            employee.permissions = employee.permissions | permissions.Read;
+            Console.WriteLine(employee.permissions);         // Delete, Execute, Read
+
+            #endregion
+
+
             #endregion
         }
-        class Employee
-        {
-            string Name;
-            int Age;
-            decimal Salary;
-            Gender Gender; // Male - Female
-        }
+
     }
 }
