@@ -15,6 +15,7 @@
         //} 
         #endregion
         #region Q02
+
         //enum Season
         //{
         //    Spring=10, Summer, Autumn, Winter
@@ -23,17 +24,24 @@
 
         #endregion
         #region Q03
-        [Flags]
-        enum permissions:byte
+        //[Flags]
+        //enum permissions:byte
+        //{
+        //    Read=1, write=2, Delete=4, Execute=8
+        //}
+        //class Employee
+        //{
+        //    public string Name;
+        //    public int Age;
+        //    public decimal Salary;
+        //    public permissions permissions;
+        //}
+        #endregion
+        #region Q04
+
+        enum Colors
         {
-            Read=1, write=2, Delete=4, Execute=8
-        }
-        class Employee
-        {
-            public string Name;
-            public int Age;
-            public decimal Salary;
-            public permissions permissions;
+            Red =10, Green, Blue
         }
         #endregion
         static void Main(string[] args)
@@ -88,28 +96,52 @@
 
             #region Q03
 
-            Employee employee = new Employee();
-            employee.Name = "Ali";
-            employee.permissions = (permissions)3;
-            Console.WriteLine(employee.permissions); // Read, write
+            //Employee employee = new Employee();
+            //employee.Name = "Ali";
+            //employee.permissions = (permissions)3;
+            //Console.WriteLine(employee.permissions); // Read, write
 
-            employee.permissions = employee.permissions ^ permissions.Delete;
-            Console.WriteLine(employee.permissions); // Read, write ,Delete
+            //employee.permissions = employee.permissions ^ permissions.Delete;
+            //Console.WriteLine(employee.permissions); // Read, write ,Delete
 
-            employee.permissions = employee.permissions ^ permissions.Delete;
-            Console.WriteLine(employee.permissions); // Read, write 
+            //employee.permissions = employee.permissions ^ permissions.Delete;
+            //Console.WriteLine(employee.permissions); // Read, write 
 
-            employee.permissions = employee.permissions | permissions.Execute;
-            Console.WriteLine(employee.permissions); // Read, write, Execute
+            //employee.permissions = employee.permissions | permissions.Execute;
+            //Console.WriteLine(employee.permissions); // Read, write, Execute
 
-            if((employee.permissions & permissions.Execute) == permissions.Execute)
+            //if((employee.permissions & permissions.Execute) == permissions.Execute)
+            //{
+            //    Console.WriteLine("Already exists");
+            //}
+            //else
+            //{
+            //    employee.permissions = employee.permissions ^ permissions.Execute;
+            //}
+
+
+            #endregion
+
+            #region Q04
+
+            Console.WriteLine("Enter A Colors ");
+
+
+            Enum.TryParse<Colors>(Console.ReadLine(), true, out Colors result);
+            
+
+            switch (result)
             {
-                Console.WriteLine("Already exists");
+                case Colors.Green:
+                case Colors.Blue:
+                case Colors.Red:
+                    Console.WriteLine($"{result} is a Primary Color");
+                    break;
+                default:
+                    Console.WriteLine("Color is Not Primary Color");
+                    break;
             }
-            else
-            {
-                employee.permissions = employee.permissions ^ permissions.Execute;
-            }
+
             #endregion
         }
     }
