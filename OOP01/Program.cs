@@ -39,10 +39,10 @@
         #endregion
         #region Q04
 
-        enum Colors
-        {
-            Red =10, Green, Blue
-        }
+        //enum Colors
+        //{
+        //    Red =10, Green, Blue
+        //}
         #endregion
         static void Main(string[] args)
         {
@@ -124,23 +124,43 @@
 
             #region Q04
 
-            Console.WriteLine("Enter A Colors ");
+            //Console.WriteLine("Enter A Colors ");
 
 
-            Enum.TryParse<Colors>(Console.ReadLine(), true, out Colors result);
+            //Enum.TryParse<Colors>(Console.ReadLine(), true, out Colors result);
+
+
+            //switch (result)
+            //{
+            //    case Colors.Green:
+            //    case Colors.Blue:
+            //    case Colors.Red:
+            //        Console.WriteLine($"{result} is a Primary Color");
+            //        break;
+            //    default:
+            //        Console.WriteLine("Color is Not Primary Color");
+            //        break;
+            //}
+
+            #endregion
+
+            #region Q05
+            Console.WriteLine("Enter X1 Y1 ");
+            var input1 = Console.ReadLine().Split();
+            double x1 = double.Parse(input1[0]);
+            double y1 = double.Parse(input1[1]);
+
+            Console.WriteLine("Enter X Y2 ");
+            var input2 = Console.ReadLine().Split();
+            double x2 = double.Parse(input2[0]);
+            double y2 = double.Parse(input2[1]);
             
 
-            switch (result)
-            {
-                case Colors.Green:
-                case Colors.Blue:
-                case Colors.Red:
-                    Console.WriteLine($"{result} is a Primary Color");
-                    break;
-                default:
-                    Console.WriteLine("Color is Not Primary Color");
-                    break;
-            }
+            Point p1 = new Point(x1,y1);
+            Point p2 = new Point(x2,y2);
+            double AB = Point.xxx(p1, p2);
+            Console.WriteLine(AB);
+            
 
             #endregion
         }
