@@ -167,36 +167,63 @@ namespace OOP01
             #endregion
             #region video04
             #region permissions
-            Employee employee = new Employee();
-            employee.Name = "Ali";
-            employee.Age = 20;
-            employee.permissions = (permissions)3;
+            //Employee employee = new Employee();
+            //employee.Name = "Ali";
+            //employee.Age = 20;
+            //employee.permissions = (permissions)3;
 
-            // OR
-            employee.permissions = employee.permissions ^ permissions.Read;
-            Console.WriteLine(employee.permissions);           // Delete, Execute, Read
+            //// OR
+            //employee.permissions = employee.permissions ^ permissions.Read;
+            //Console.WriteLine(employee.permissions);           // Delete, Execute, Read
 
-            employee.permissions = employee.permissions ^ permissions.Read;
-            Console.WriteLine(employee.permissions);          // Delete, Execute
+            //employee.permissions = employee.permissions ^ permissions.Read;
+            //Console.WriteLine(employee.permissions);          // Delete, Execute
 
-            // &
-            if((employee.permissions & permissions.Read) == permissions.Read)
-            {
-                Console.WriteLine("Read is exist");
-            }
-            else
-            {
-                employee.permissions = employee.permissions ^ permissions.Read;
-            }
-            Console.WriteLine(employee.permissions);         //Delete, Execute, Read
+            //// &
+            //if((employee.permissions & permissions.Read) == permissions.Read)
+            //{
+            //    Console.WriteLine("Read is exist");
+            //}
+            //else
+            //{
+            //    employee.permissions = employee.permissions ^ permissions.Read;
+            //}
+            //Console.WriteLine(employee.permissions);         //Delete, Execute, Read
 
-            // OR  |
-            employee.permissions = employee.permissions | permissions.Read;
-            Console.WriteLine(employee.permissions);         // Delete, Execute, Read
+            //// OR  |
+            //employee.permissions = employee.permissions | permissions.Read;
+            //Console.WriteLine(employee.permissions);         // Delete, Execute, Read
 
             #endregion
 
+            #endregion
+            #region video05
 
+            #region Struct
+
+            Point P01;
+
+            //Console.WriteLine(P01.X);  // invalid
+            //P01.X = 10;
+            //P01.Y = 20;
+
+            //Console.WriteLine(P01.X);
+            //Console.WriteLine(P01.Y);
+
+            P01 = new Point(2,7);
+
+            //Console.WriteLine(P01.Y);
+            Console.WriteLine(P01);  //  OOP01.Point
+            Console.WriteLine(P01.ToString());  // OOP01.Point
+
+            int X = 10;
+            Console.WriteLine(X);
+            Console.WriteLine(X.ToString());
+
+
+            Point P02 = new();
+
+            #endregion
             #endregion
         }
 
